@@ -14,6 +14,10 @@ public class ConversorMoeda {
         HttpRequest request = HttpRequest.newBuilder().uri(path).build();
         HttpResponse<String> resposta = cliente.send(request, HttpResponse.BodyHandlers.ofString());
 
+        if (resposta.statusCode() != 200) {
+            throw new RuntimeException("Erro na API: código HTTP " + resposta.statusCode());
+        }
+
         return new Gson().fromJson(resposta.body(), RespostaTaxaCambio.class).conversion_result();
     }
 }

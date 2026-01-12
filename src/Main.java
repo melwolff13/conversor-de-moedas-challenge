@@ -27,6 +27,11 @@ public class Main {
                 System.out.println("Digite o valor a ser convertido:");
                 var valorInicial = Double.parseDouble(scanner.nextLine().replace(",", "."));
 
+                if (valorInicial <= 0) {
+                    System.out.println("Erro: o valor deve ser maior que 0\n");
+                    continue;
+                }
+
                 var valorConvertido = conversor.converte(moedaBase, moedaDestino, valorInicial);
                 System.out.println("\nValor " + valorInicial + " [" + moedaBase + "] corresponde a >>> " + valorConvertido + " [" + moedaDestino + "]\n");
             } catch (NumberFormatException e) {
