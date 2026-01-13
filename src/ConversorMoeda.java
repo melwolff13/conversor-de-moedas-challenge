@@ -7,10 +7,36 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConversorMoeda {
-    public double converte(String moedaBase, String moedaDestino, double valor) throws IOException, InterruptedException {
-        URI path = URI.create("https://v6.exchangerate-api.com/v6/f3064bd5f4206d98bdd95689/pair/" + moedaBase + "/" + moedaDestino + "/" + valor);
+    private static final String API_KEY = obterApiKey();
+    private final HttpClient cliente;
+    private final Gson gson;
 
-        HttpClient cliente = HttpClient.newHttpClient();
+    public ConversorMoeda() {
+        this.cliente = HttpClient.newHttpClient();
+        this.gson = new Gson();
+    }
+
+    private static String obterApiKey() {
+        String api_key = System.getenv("EXCHANGE_RATE_API_KEY");
+
+        if (api_key == null || api_key.isEmpty()) {
+            System.err.println("Erro: Variável de ambiente não configurada");
+            System.err.println("\nComo configurar:");
+            System.err.println("Na sua IDE:");
+            System.err.println("  - Vá em Run > Edit Configurations");
+            System.err.println("  - Adicione em Environment Variables:");
+            System.err.println("    - Nome: EXCHANGE_RATE_API_KEY");
+            System.err.println("    - Valor: sua_chave_api");
+
+            throw new IllegalStateException("API_KEY não configurada");
+        }
+
+        return api_key;
+    }
+
+    public double converte(String moedaBase, String moedaDestino, double valor) throws IOException, InterruptedException {
+        URI path = URI.create("https://v6.exchangerate-api.com/v6/" + API_KEY + "/pair/" + moedaBase + "/" + moedaDestino + "/" + valor);
+
         HttpRequest request = HttpRequest.newBuilder().uri(path).build();
         HttpResponse<String> resposta = cliente.send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -18,6 +44,7 @@ public class ConversorMoeda {
             throw new RuntimeException("Erro na API: código HTTP " + resposta.statusCode());
         }
 
-        return new Gson().fromJson(resposta.body(), RespostaTaxaCambio.class).conversion_result();
+        RespostaTaxaCambio resultado = gson.fromJson(resposta.body(), RespostaTaxaCambio.class);
+        return resultado.conversion_result();
     }
 }

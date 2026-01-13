@@ -12,8 +12,8 @@ public class Main {
                 exibeMenu();
                 var opcaoEscolhida = Integer.parseInt(scanner.nextLine());
 
-                if (opcaoEscolhida < 0 || opcaoEscolhida > 6) {
-                    System.out.println("Erro: valor fora das opções válidas.\n");
+                if (opcaoEscolhida < 0 || opcaoEscolhida > dicionario.size()) {
+                    System.err.println("Erro: valor fora das opções válidas.\n");
                     continue;
                 }
                 if (opcaoEscolhida == 0) {
@@ -28,16 +28,17 @@ public class Main {
                 var valorInicial = Double.parseDouble(scanner.nextLine().replace(",", "."));
 
                 if (valorInicial <= 0) {
-                    System.out.println("Erro: o valor deve ser maior que 0\n");
+                    System.err.println("Erro: o valor deve ser maior que 0\n");
                     continue;
                 }
 
                 var valorConvertido = conversor.converte(moedaBase, moedaDestino, valorInicial);
                 System.out.println("\nValor " + valorInicial + " [" + moedaBase + "] corresponde a >>> " + valorConvertido + " [" + moedaDestino + "]\n");
             } catch (NumberFormatException e) {
-                System.out.println("Erro: valor inválido\n");
+                System.err.println("Erro: valor inválido\n");
             }
         }
+
     }
 
     private static void exibeMenu() {
