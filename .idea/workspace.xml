@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c59d49c-b8e9-4aee-8f76-f5c6f49e3539" name="Changes" comment="migra projeto para Maven e adiciona gerenciamento de dependências">
+    <list default="true" id="1c59d49c-b8e9-4aee-8f76-f5c6f49e3539" name="Changes" comment="update README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/melissa/ConversorMoeda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/melissa/ConversorMoeda.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +132,7 @@
       <workItem from="1768421707169" duration="12000" />
       <workItem from="1768421849231" duration="1780000" />
       <workItem from="1768423658782" duration="802000" />
-      <workItem from="1768443555738" duration="4497000" />
+      <workItem from="1768443555738" duration="6195000" />
     </task>
     <task id="LOCAL-00001" summary="funções implementadas">
       <option name="closed" value="true" />
@@ -182,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768424154103</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update README.md">
+      <option name="closed" value="true" />
+      <created>1768448350253</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1768448350253</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,8 +201,8 @@
     <MESSAGE value="correções" />
     <MESSAGE value="configuração da variável de ambiente" />
     <MESSAGE value="adiciona biblioteca Gson" />
-    <MESSAGE value="update README.md" />
     <MESSAGE value="migra projeto para Maven e adiciona gerenciamento de dependências" />
-    <option name="LAST_COMMIT_MESSAGE" value="migra projeto para Maven e adiciona gerenciamento de dependências" />
+    <MESSAGE value="update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
   </component>
 </project>

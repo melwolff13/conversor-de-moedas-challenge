@@ -24,11 +24,11 @@ public class ConversorMoeda {
         if (api_key == null || api_key.isEmpty()) {
             System.err.println("Erro: Variável de ambiente não configurada");
             System.err.println("\nComo configurar:");
-            System.err.println("Na sua IDE:");
-            System.err.println("  - Vá em Run > Edit Configurations");
-            System.err.println("  - Adicione em Environment Variables:");
-            System.err.println("    - Nome: EXCHANGE_RATE_API_KEY");
-            System.err.println("    - Valor: sua_chave_api");
+            System.err.println("- Windows:");
+            System.err.println("    - setx EXCHANGE_RATE_API_KEY \"sua_chave_aqui\"");
+            System.err.println("- Linus/MacOS:");
+            System.err.println("    - export EXCHANGE_RATE_API_KEY=\"sua_chave_aqui\"\n");
+            System.err.println("Reinicie sua IDE após configurar a variavel.");
 
             throw new IllegalStateException("API_KEY não configurada");
         }
