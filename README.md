@@ -19,9 +19,9 @@ Este é um sistema desenvolvido em Java que permite realizar conversões entre d
 ## 🔵 Tecnologias utilizadas
 
 - Java 25
-- HttpClient (java.net.http) para requisições HTTP
-- Gson: biblioteca para desserialização de JSON
-- ExchangeRate API: API de taxas de câmbio em tempo real
+- Maven
+- Gson
+- ExchangeRate API
 
 ---
 ## ▶️ Como usar
@@ -39,31 +39,45 @@ git clone https://github.com/melwolff13/conversor-de-moedas-challenge.git
 
 ### 2. Obtenha sua API Key
 
-Para adquirir sua chave da ExchangeRate API, você deve:
+Para adquirir a sua chave da ExchangeRate API, você deve:
 1. acessar o site https://www.exchangerate-api.com/
 2. clicar em "Get free key!"
-3. criar sua conta
+3. criar a sua conta
 
-Você receberá um e-mail com sua própria API Key, semelhante a ````abc123def456ghi789```` .
+Você receberá um e-mail com a sua própria API Key, semelhante a ````abc123def456ghi789```` .
 
 >Todas as etapas desse processo são gratuitas. A API disponibiliza, sem custos, a chave e um limite mensal de requisições.
 
 
 ### 3. Configure a API Key
 
-Este projeto utiliza uma variável de ambiente para armazenar a chave da API. Na sua IDE (Intellij, Eclipse etc.):
-1. Abra o projeto
-2. Vá em Run > Edit Configurations
-3. No campo Environment variables, adicione:
-   * Name: ````EXCHANGE_RATE_API_KEY````
-   * Value: ````sua_chave_aqui````
+Este projeto utiliza uma API externa para realizar a conversão de moedas. Dessa forma, a chave da API não fica armazenada no código e deve ser configurada como uma variável de ambiente.
 
+#### 3.1. Como configurar: Windows
+No terminal:
+````
+setx EXCHANGE_RATE_API_KEY "sua_chave_aqui"
+````
+Para verificar:
+````
+echo $Env:EXCHANGE_RATE_API_KEY
+````
 
-Por fim, execute a classe ````Main.java````.
+#### 3.2. Como configurar: Linux/ MacOS
+No terminal:
+````
+export EXCHANGE_RATE_API_KEY="sua_chave_aqui"
+````
+Para verificar:
+````
+echo $EXCHANGE_RATE_API_KEY
+````
+
+Por fim, reinicie a IDE e o sistema deve estar pronto para ser usado.
 
 ### 4. Exemplo de uso
 
-Ao rodar o programa, você verá o seguinte menu:
+Ao rodar a classe ````Main.java```` (src/main/java/br/com/melissa/Main.java), você verá o seguinte menu:
 
 ````
 ***************************************
@@ -99,5 +113,5 @@ BEM-VINDO(A) AO CONVERSOR DE MOEDA $-$
 
 ## 🍯 Autora
 | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/168154573?v=4" width=115><br><sub>Melissa Wolff</sub>](https://github.com/melwolff13) |
-| :---: |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|
 
